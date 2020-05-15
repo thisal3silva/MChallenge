@@ -1,0 +1,29 @@
+Error Detection
+	
+	Server Side 
+
+	Some error detection can be implemented where any data that does not conform to the expected format will be flagged and could return an error code.
+	A header could be implemented to accompany the data as shown below,
+	 [status] [error code] [posx, posy] 
+
+	status flag (if the command exected or not) 
+	error code (predetermined error which occured example 0x0001 could mean mechanical failure etc)
+	[posx, posy] data which is to be used if the status flag is valid
+
+	Client Side
+
+	Error detection can also be implement on the client side to ensure that the inputs are valid (position has to be integer values etc.)
+
+	Right now invalid inputs break the program, we can use exceptions and try-catch blocks to handle this better
+
+
+Support for tracking history of commands sent
+
+	A log of both commands sent and received could be kept on both the client side and the server side.
+	This could be implemented in the form of a logger setup to forward to a .txt file that gets appended with session information, timestamp, etc
+
+	A ClientID could be setup as an environment variable for each instance of the client thats created to uniquely identify the machine
+
+	The log file should also contain details of the ports/ addresses data is sent to / received from
+
+	Example of logger file name : __<date>_<time>__<ClientID>.log
